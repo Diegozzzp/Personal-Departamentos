@@ -37,7 +37,7 @@ exports.crearDepartamento = async (req, res) => {
 
 exports.editarDepartamento = async (req, res) => {
     try{
-        const departamentos = await Departamentos.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const departamentos = await Departamentos.findByIdAndUpdate(req.params.id, req.body, {new: true, fecha_actualizacion: new Date()});
         res.json(departamentos);
     }
     catch(error){   
@@ -58,7 +58,7 @@ exports.remplazarDepartamento = async (req, res) => {
 //hacer un delete pero no borrando el usuario si no editando el estado y ponerlo inactivo
 exports.eliminarDepartamento = async (req, res) => {
     try{
-        const departamentos = await Departamentos.findByIdAndUpdate(req.params.id, {estado: 'inactivo'});
+        const departamentos = await Departamentos.findByIdAndUpdate(req.params.id, {estado: 'inactivo', fecha_eliminacion: new Date()});
         res.json({status: 'departamento eliminado'});
     }
     catch(error){

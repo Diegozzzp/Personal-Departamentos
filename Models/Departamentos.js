@@ -4,8 +4,8 @@ const departamentoSchema = new mongoose.Schema({
     nombre: {type: String, required: true, min: 3, max: 50},
     descripcion : {type: String, required: true, min: 3, max: 50},
     fecha_creacion : {type: Date, default: Date.now},
-    fecha_actualizacion : {type: Date, default: Date.now},
-    //fecha_eliminacion : {type: Date, required: true},
+    fecha_actualizacion : {type: Date},
+    fecha_eliminacion : {type: Date},
     estado : {type: String, default : 'Activo'}
 
 });

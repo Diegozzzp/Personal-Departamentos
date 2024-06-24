@@ -14,9 +14,10 @@ const EmpleadosSchema = new mongoose.Schema({
     ciudad: {type: String, min: 3, max: 50, required: true},
     pais: {type: String, required: true, min: 3, max: 50},
     codigo_postal: {type: Number},
-    //fecha_actualizacion: {type: Date},
+    fecha_actualizacion: {type: Date , default: Date.now},
     estado: {type: String, default : 'Activo'},
-    //fecha_eliminacion: {type: Date, required: true}
+    //cuando se elimine el empleado actualiza la fecha de eliminación
+    fecha_eliminacion: {type: Date}
 });
 
 const Empleados = mongoose.model('empleados', EmpleadosSchema);
