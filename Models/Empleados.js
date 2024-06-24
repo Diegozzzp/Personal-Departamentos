@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate-v2');
+
 
 const EmpleadosSchema = new mongoose.Schema({
     nombre: {type: String, required: true, min: 3, max: 50},
@@ -20,11 +20,6 @@ const EmpleadosSchema = new mongoose.Schema({
 });
 
 const Empleados = mongoose.model('empleados', EmpleadosSchema);
-
-EmpleadosSchema.plugin(mongoosePaginate)
-
-
-
 
 module.exports = Empleados
 
